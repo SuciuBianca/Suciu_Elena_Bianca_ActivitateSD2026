@@ -18,7 +18,7 @@ typedef struct StructuraMasina Masina;
 
 void afisareMasina(Masina m) {
 	
-	printf("ID: %d|| Usi: %d|| Pret %5.2f||,Model: %-10s|| Sofer: %-10s|| Serie: %c\n",
+	printf("ID: %d|| Usi: %d|| Pret %5.2f||Model: %-10s|| Sofer: %-10s|| Serie: %c\n\n",
 		m.id,m.nrUsi,m.pret,m.model,m.numeSofer,m.serie);
 }
 
@@ -91,13 +91,27 @@ Masina* citireVectorMasiniFisier(const char* numeFisier, int* nrMasiniCitite) {
 }
 
 void dezalocareVectorMasini(Masina** vector, int* nrMasini) {
-	//este dezalocat intreg vectorul de masini
+	for (int i = 0;i < *nrMasini;i++)
+	{
+		if ((*vector)[i].model != NULL)
+		{
+			free((*vector)[i].model);
+		}
+		if ((*vector)[i].numeSofer != NULL)
+		{
+			free((*vector)[i].numeSofer);
+		}
+	}
+	free(*vector);
+	(*vector) = NULL;
+	(*nrMasini) = 0;
 }
 
 int main() {
 	int nrMasini = 0;
 	Masina* masini = citireVectorMasiniFisier("masini.txt", &nrMasini);
 	afisareVectorMasini(masini, nrMasini);
+	dezalocareVectorMasini(&masini, &nrMasini);
 	
 
 	return 0;
