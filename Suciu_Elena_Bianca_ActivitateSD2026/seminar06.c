@@ -101,8 +101,13 @@ void* citireStackMasiniDinFisier(const char* numeFisier) {
 	return cap;
 }
 
-void dezalocareStivaDeMasini(/*stiva*/) {
-	//sunt dezalocate toate masinile si stiva de elemente
+
+void dezalocareStivaDeMasini(Nod** cap) {
+	while (*cap != NULL) {
+		Masina m = popStack(cap);
+		free(m.model);
+		free(m.numeSofer);
+	}
 }
 
 int size(/*stiva*/) {
@@ -171,10 +176,15 @@ ListaD citireCoadaDeMasiniDinFisier(const char* numeFisier) {
 	}return coada;
 }
 
-void dezalocareCoadaDeMasini(/*coada*/) {
-	//sunt dezalocate toate masinile si coada de elemente
-}
 
+void dezalocareCoadaDeMasini(ListaD* coada) {
+	while (coada->first != NULL) {
+		Masina m = dequeue(coada);
+		free(m.model);
+		free(m.numeSofer);
+	}
+	coada->last = NULL;
+}
 
 //metode de procesare
 Masina getMasinaByID(Nod** stiva, int id)
@@ -218,5 +228,8 @@ int main() {
 	ListaD coada= citireCoadaDeMasiniDinFisier("masini.txt");
 	afisareMasina(dequeue(&coada));
 	afisareMasina(dequeue(&coada));
+
+	dezalocareStivaDeMasini(&stiva);
+	dezalocareCoadaDeMasini(&coada);
 	return 0;
 }
