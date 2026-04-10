@@ -110,8 +110,23 @@ void dezalocareStivaDeMasini(Nod** cap) {
 	}
 }
 
-int size(/*stiva*/) {
-	//returneaza numarul de elemente din stiva
+int size(Nod** stiva) {
+	int contor = 0;
+	Nod* stivaAux = NULL;
+	while (*stiva != NULL)
+	{
+		Masina m = popStack(stiva);
+		contor++;
+		pushStack(&stivaAux,m);
+	}
+	while (stivaAux != NULL)
+	{
+		Masina m = popStack(&stivaAux);
+		pushStack(stiva, m);
+	}
+	return contor;
+
+
 }
 typedef struct NodDublu NodDublu;
 struct NodDublu
@@ -215,7 +230,23 @@ Masina getMasinaByID(Nod** stiva, int id)
 	return masinaRezultat;
 }
 
-float calculeazaPretTotal(/*stiva sau coada de masini*/);
+float calculeazaPretTotal(Nod** stiva)
+{
+	float suma = 0;
+	Nod* stivaAuxiliara = NULL;
+	while (*stiva != NULL)
+	{
+		Masina m = popStack(stiva);
+		suma += m.pret;
+		pushStack(&stivaAuxiliara, m);
+	}
+	while (stivaAuxiliara != NULL)
+	{
+		Masina m = popStack(&stivaAuxiliara);
+		pushStack(stiva, m);
+	}
+	return suma;
+}
 
 int main() {
 	Nod* stiva = citireStackMasiniDinFisier("masini.txt");
