@@ -1,0 +1,5 @@
+101,Popescu Ion,250.50,D
+102,Ionescu Maria,120.00,N
+103,Vasilescu Andrei,340.75,D
+104,Dumitrescu Elena,85.20,N
+105,Gheorghiu Dan,500.00,D
