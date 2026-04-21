@@ -1,0 +1,7 @@
+1,2022,259.99,Elden Ring,FromSoftware,M,RPG
+2,2023,199.99,FIFA 24,EA Sports,E,Sport
+3,2021,149.99,Halo Infinite,343 Industries,T,FPS
+4,2022,239.99,God of War Ragnarok,Santa Monica,M,Actiune
+5,2020, 89.99,Among Us,Innersloth,E,Party
+6,2023,219.99,Starfield,Bethesda,M,RPG
+7,2022,179.99,Overwatch 2,Blizzard,T,FPS
