@@ -1,0 +1,6 @@
+1,Popescu,15.10.2025,2,confirmata
+2,Ionescu,15.10.2025,4,in asteptare
+3,Stan,16.10.2025,6,in asteptare
+4,Vasile,15.10.2025,2,anulata
+5,Ana,17.10.2025,5,in asteptare
+6,Maria,15.10.2025,3,confirmata
