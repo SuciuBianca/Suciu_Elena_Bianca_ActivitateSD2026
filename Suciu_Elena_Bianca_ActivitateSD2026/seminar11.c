@@ -163,11 +163,32 @@ void citireMuchiiDinFisier(Nod*graf,const char* numeFisier)
 	fclose(f);
 	return graf;
 }
-
-void dezalocareNoduriGraf(void* listaPrincipala) 
+void dezalocareListaSecundara(NodSecundar** cap)
 {
-	//sunt dezalocate toate masinile din graf 
-	//si toate nodurile celor doua liste
+	while (*cap)
+	{
+		NodSecundar* p = (*cap);
+		(*cap) = (*cap)->next;
+		free(p);
+	}
+}
+void dezalocareListaPrincipala(Nod** graf)
+{
+	while (*graf)
+	{
+		Nod* p = (*graf);
+		(*graf) = (*graf)->next;
+		dezalocareListaSecundara(&(p->vecini));
+		if (p->info.model!=NULL)
+		{
+			free(p->info.model);
+		}
+		if (p->info.numeSofer!=NULL)
+		{
+			free(p->info.numeSofer);
+		}
+		free(p);
+	}
 }
 
 void afiseazaListaSec(Nod*graf,int id)
@@ -186,5 +207,6 @@ int main() {
 	Nod* graf = citireNoduriMasiniDinFisier("masini.txt");
 	citireMuchiiDinFisier(graf, "muchii.txt");
 	afiseazaListaSec(graf, 4);
+	dezalocareListaPrincipala(&graf);
 	return 0;
 }
