@@ -1,0 +1,7 @@
+10,2.5,Tarom,450.5,D
+4,1.8,WizzAir,300.0,N
+15,3.2,Lufthansa,900.0,D
+2,2.0,Ryanair,250.0,N
+7,4.5,AirFrance,1100.0,D
+12,1.2,HiSky,200.0,N
+20,5.0,Emirates,2500.0,D
