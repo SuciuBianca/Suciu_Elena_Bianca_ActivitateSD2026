@@ -1,0 +1,7 @@
+101,Popescu Ion,4.5,2,B101
+102,Ionescu Maria,1.2,1,C204
+103,Dumitrescu Elena,7.8,4,A330
+104,Stan Andrei,2.4,3,B101
+105,Georgescu Ana,0.9,1,D500
+106,Marin Vlad,5.1,5,A330
+107,Radu Ioana,3.3,2,C204
