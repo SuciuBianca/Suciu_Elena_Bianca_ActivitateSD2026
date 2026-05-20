@@ -1,0 +1,6 @@
+1,Piata Unirii,M1,12000
+2,Timpuri Noi,M1,6500
+3,Victoriei,M2,15000
+4,Universitate,M2,9800
+5,Dristor,M1,11000
+6,Eroilor,M3,8700
